@@ -30,7 +30,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Imagem)
+            <img src=@Html.DisplayFor(modelItem => item.Imagem) alt="Sample Photo" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nota)
