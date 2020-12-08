@@ -28,11 +28,13 @@ namespace PreguicaNews.Data
             SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM "+tipoS, ligacao);
             DataTable dados = new DataTable();
             adaptador.Fill(dados);
+       
             //colacando os dados na lista
             
             foreach (DataRow linha in dados.Rows)
             {
                 EntertainmentModel entertainmentModel = new EntertainmentModel();
+                
                 entertainmentModel.Nome = linha["Nome"].ToString();
                 entertainmentModel.Nota = linha["Nota"].ToString();
                 entertainmentModel.Resumo = linha["Resumo"].ToString();
