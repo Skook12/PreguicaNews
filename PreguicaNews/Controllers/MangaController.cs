@@ -44,5 +44,23 @@ namespace PreguicaNews.Controllers
             //}
             //return Content(Nome);
         }
+        public ActionResult Details(int id)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            EntertainmentModel entertainment = entertainmentDAO.FetchOne(id, 1);
+            return View("Details", entertainment);
+        }
+
+        public ActionResult Create()
+        {
+            return View("EntertainmentForm");
+        }
+
+        public ActionResult Pcreate(EntertainmentModel entertainmentModel)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            entertainmentDAO.Create(entertainmentModel,1);
+            return View("Details", entertainmentModel);
+        }
     }
 }

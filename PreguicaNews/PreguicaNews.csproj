@@ -168,6 +168,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Jogos\MostrarJogos.cshtml" />
     <Content Include="Views\Manga\MostrarManga.cshtml" />
+    <Content Include="Views\Jogos\Details.cshtml" />
+    <Content Include="Views\Manga\Details.cshtml" />
+    <Content Include="Views\Jogos\EntertainmentForm.cshtml" />
+    <Content Include="Views\Manga\EntertainmentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,6 +28,7 @@ namespace PreguicaNews.Controllers
 
             return View("MostrarJogos", jogos);
 
+
             //String Nome = "", Nota, Resumo, Imagem;
             //SqlConnection ligacao = new SqlConnection();
             //ligacao.ConnectionString = @"Server = localhost\SQLEXPRESSS; Database = GameDB; Trusted_Connection = True";
@@ -46,6 +47,23 @@ namespace PreguicaNews.Controllers
             //    return Content(Resumo);
             //}
             //return Content(Nome);
+        }
+        public ActionResult Details(int id)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            EntertainmentModel entertainment = entertainmentDAO.FetchOne(id,0);
+            return View("Details", entertainment);
+        }
+        public ActionResult Create()
+        {
+            return View("EntertainmentForm");
+        }
+
+        public ActionResult Pcreate(EntertainmentModel entertainmentModel)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            entertainmentDAO.Create(entertainmentModel,0);
+            return View("Details", entertainmentModel);
         }
     }
 }
