@@ -26,23 +26,7 @@ namespace PreguicaNews.Controllers
             jogos = entertainmentDAO.FetchAll(1);
 
             return View("MostrarManga", jogos);
-            //String Nome= "", Nota, Resumo, Imagem;
-            //SqlConnection ligacao = new SqlConnection();
-            //ligacao.ConnectionString = @"Server = localhost\SQLEXPRESSS; Database = GameDB; Trusted_Connection = True";
-            //ligacao.Open();
-
-            //SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM Games", ligacao);
-            //DataTable dados = new DataTable();
-            //adaptador.Fill(dados);
-            //foreach( DataRow linha in dados.Rows)
-            //{
-            //    Nome = linha["Nome"].ToString();
-            //    Nota = linha["Nota"].ToString();
-            //    Resumo = linha["Resumo"].ToString();
-            //    Imagem = linha["Imagem"].ToString();
-            //    return Content(Nome);
-            //}
-            //return Content(Nome);
+            
         }
         public ActionResult Details(int id)
         {
@@ -61,6 +45,13 @@ namespace PreguicaNews.Controllers
             EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
             entertainmentDAO.Create(entertainmentModel,1);
             return View("Details", entertainmentModel);
+        }
+        public ActionResult Delete(int id)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            entertainmentDAO.Delete(id, 1);
+            List<EntertainmentModel> entertainments = entertainmentDAO.FetchAll(1);
+            return View("MostrarManga", entertainments);
         }
     }
 }
