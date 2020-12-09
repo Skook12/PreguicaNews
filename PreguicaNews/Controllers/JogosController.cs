@@ -65,5 +65,12 @@ namespace PreguicaNews.Controllers
             entertainmentDAO.Create(entertainmentModel,0);
             return View("Details", entertainmentModel);
         }
+        public ActionResult Delete(int id)
+        {
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            entertainmentDAO.Delete(id,0);
+            List<EntertainmentModel> entertainments = entertainmentDAO.FetchAll(0);
+            return View("MostrarJogos", entertainments);
+        }
     }
 }

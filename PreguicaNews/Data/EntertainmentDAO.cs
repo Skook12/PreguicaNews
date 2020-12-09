@@ -84,6 +84,33 @@ namespace PreguicaNews.Data
 
             return entertainmentModel;
         }
+
+        internal int Delete(int id,int tipo)
+        {
+            //acessando a database
+            SqlConnection ligacao = new SqlConnection();
+            string tipoD = "", tipoS = "";
+            if (tipo == 0)
+            {
+                tipoD = "GameDB";
+                tipoS = "Games";
+            }
+            else if (tipo == 1)
+            {
+                tipoD = "MangaDB";
+                tipoS = "Manga";
+            }
+            ligacao.ConnectionString = @"Server = (localdb)\MSSQLLocalDB; Database = " + tipoD + "; Trusted_Connection = True";
+            ligacao.Open();
+            //Associando o @id com o Id
+            SqlCommand command = new SqlCommand("DELETE FROM  dbo." + tipoS + " WHERE Id = @Id", ligacao);
+            command.Parameters.Add("@Id", System.Data.SqlDbType.VarChar).Value = id;
+            int deleteId = command.ExecuteNonQuery();
+
+
+            return deleteId;
+        }
+
         public int Create(EntertainmentModel entertainmentModel, int tipo)
         {
             //acessando a database
