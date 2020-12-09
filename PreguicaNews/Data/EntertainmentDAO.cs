@@ -85,6 +85,47 @@ namespace PreguicaNews.Data
             return entertainmentModel;
         }
 
+        internal List<EntertainmentModel> SearchForEntertainment(string searchWord,int tipo)
+        {
+            List<EntertainmentModel> returnList = new List<EntertainmentModel>();
+            //acessando a database
+            SqlConnection ligacao = new SqlConnection();
+            string tipoD = "", tipoS = "";
+            if (tipo == 0)
+            {
+                tipoD = "GameDB";
+                tipoS = "Games";
+            }
+            else if (tipo == 1)
+            {
+                tipoD = "MangaDB";
+                tipoS = "Manga";
+            }
+            ligacao.ConnectionString = @"Server = (localdb)\MSSQLLocalDB; Database = " + tipoD + "; Trusted_Connection = True";
+            ligacao.Open();
+            SqlCommand command = new SqlCommand("SELECT * FROM dbo." + tipoS + " WHERE Nome LIKE @search", ligacao);
+            command.Parameters.Add("@search", System.Data.SqlDbType.NVarChar).Value = "%"+searchWord+"%";
+
+
+            //colacando os dados na lista
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    EntertainmentModel entertainmentModel = new EntertainmentModel();
+                    entertainmentModel.Id = reader.GetInt32(0);
+                    entertainmentModel.Nome = reader.GetString(1);
+                    entertainmentModel.Nota = reader.GetString(2);
+                    entertainmentModel.Resumo = reader.GetString(3);
+                    entertainmentModel.Imagem = reader.GetString(4);
+                    returnList.Add(entertainmentModel);
+                }
+            }
+
+            return returnList;
+        }
+
         internal int Delete(int id,int tipo)
         {
             //acessando a database

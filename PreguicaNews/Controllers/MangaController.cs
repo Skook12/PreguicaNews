@@ -53,5 +53,19 @@ namespace PreguicaNews.Controllers
             List<EntertainmentModel> entertainments = entertainmentDAO.FetchAll(1);
             return View("MostrarManga", entertainments);
         }
+
+        public ActionResult SearchForm()
+        {
+
+            return View("SearchForm");
+        }
+
+        public ActionResult SearchForEntertainment(string searchWord)
+        {
+            //pega uma lista com os resultados da database
+            EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
+            List<EntertainmentModel> searchResults = entertainmentDAO.SearchForEntertainment(searchWord, 1);
+            return View("MostrarManga", searchResults);
+        }
     }
 }
