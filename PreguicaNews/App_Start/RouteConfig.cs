@@ -18,12 +18,12 @@ namespace PreguicaNews
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
+            routes.MapRoute( //Pagina de Jogos
                 name: "Jogos",
                 url: "Jogos/MostrarJogos/666",
                 defaults: new { controller = "Jogos", action = "MostrarJogos", id = 1212}
             );
-            routes.MapRoute(
+            routes.MapRoute( //Pagina de Mangas
                 name: "Manga",
                 url: "Manga/MostrarManga/666",
                 defaults: new { controller = "Jogos", action = "MostrarJogos", id = 1212 }

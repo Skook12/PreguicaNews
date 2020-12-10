@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MostrarManga</h2>
+<h2>Mangas</h2>
 
 <p>
     @Html.ActionLink("Criar Novo", "Create")
-    @Html.ActionLink("Pesquisar", "SearchForm")
+<p></p>
+@Html.ActionLink("Pesquisar", "SearchForm")
 </p>
 <table class="table">
     <tr>
@@ -25,23 +26,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <img src=@Html.DisplayFor(modelItem => item.Imagem) alt="Sample Photo" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src=@Html.DisplayFor(modelItem => item.Imagem) alt="Sample Photo" width="98" height="122"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

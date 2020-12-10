@@ -91,12 +91,12 @@ namespace PreguicaNews.Data
             //acessando a database
             SqlConnection ligacao = new SqlConnection();
             string tipoD = "", tipoS = "";
-            if (tipo == 0)
+            if (tipo == 0)//Data Base de Jogos
             {
                 tipoD = "GameDB";
                 tipoS = "Games";
             }
-            else if (tipo == 1)
+            else if (tipo == 1)//Data Base de Manga
             {
                 tipoD = "MangaDB";
                 tipoS = "Manga";
@@ -131,12 +131,12 @@ namespace PreguicaNews.Data
             //acessando a database
             SqlConnection ligacao = new SqlConnection();
             string tipoD = "", tipoS = "";
-            if (tipo == 0)
+            if (tipo == 0)//Data Base de Jogos
             {
                 tipoD = "GameDB";
                 tipoS = "Games";
             }
-            else if (tipo == 1)
+            else if (tipo == 1)//Data Base de Mangas
             {
                 tipoD = "MangaDB";
                 tipoS = "Manga";
@@ -157,12 +157,12 @@ namespace PreguicaNews.Data
             //acessando a database
             SqlConnection ligacao = new SqlConnection();
             string tipoD = "", tipoS = "";
-            if (tipo == 0)
+            if (tipo == 0)//Data Base de Jogos
             {
                 tipoD = "GameDB";
                 tipoS = "Games";
             }
-            else if (tipo == 1)
+            else if (tipo == 1)//Data Base de Mangas
             {
                 tipoD = "MangaDB";
                 tipoS = "Manga";

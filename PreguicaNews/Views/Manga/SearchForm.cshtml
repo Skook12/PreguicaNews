@@ -1,11 +1,11 @@
 ﻿@model PreguicaNews.Models.EntertainmentModel
 
 @{
-    ViewBag.Title = "SearchForm";
+    ViewBag.Title = "Pesquisa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SearchForm</h2>
+<h2>Pesquisa</h2>
 
 
 @using (Html.BeginForm("SearchForEntertainment","Manga"))
@@ -13,12 +13,12 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>EntertainmentModel</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <div class="col-md-10">
-                <label for="searchWord">Pesquise um jogo/manga</label>
+                <label for="searchWord">Pesquise um manga</label>
                 <input type="text" name="searchWord" id="searchWord" class="form-control" />
             </div>
         </div>
@@ -32,7 +32,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "MostrarMangas")
+    @*@Html.ActionLink("Back to List", "MostrarMangas")*@
 </div>
 
 @section Scripts {

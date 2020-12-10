@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>MostrarJogos</h2>
+<h2>Jogos</h2>
 
 <p>
     @Html.ActionLink("Criar Novo", "Create")
+    <p></p>
     @Html.ActionLink("    Pesquisar", "SearchForm")
 </p>
 <table class="table">
@@ -28,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            <img src=@Html.DisplayFor(modelItem => item.Imagem) alt="Sample Photo" />
+            <img src=@Html.DisplayFor(modelItem => item.Imagem) alt="Sample Photo" width="98" height="122" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nota)

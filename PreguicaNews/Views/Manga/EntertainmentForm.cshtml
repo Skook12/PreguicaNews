@@ -1,11 +1,11 @@
 ﻿@model PreguicaNews.Models.EntertainmentModel
 
 @{
-    ViewBag.Title = "EntertainmentForm";
+    ViewBag.Title = "Criar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EntertainmentForm</h2>
+<h2>Criar</h2>
 
 
 @using (Html.BeginForm("Pcreate", "Manga")) 
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>EntertainmentModel</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
