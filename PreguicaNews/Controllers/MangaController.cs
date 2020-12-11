@@ -25,14 +25,14 @@ namespace PreguicaNews.Controllers
 
             manga = entertainmentDAO.FetchAll(1);//para saber sobre o FetchALL olhe a classe entertainmentDAO
 
-            return View("MostrarManga", manga);//retorna a lista
+            return View("MostrarManga", manga);//mostra a lista na pagina
 
         }
         public ActionResult Details(int id)//funcao que ira mostrar os detalhes sobre um item
         {
             EntertainmentDAO entertainmentDAO = new EntertainmentDAO();
             EntertainmentModel entertainment = entertainmentDAO.FetchOne(id, 1);//para saber sobre o FetchOne olhe a classe entertainmentDAO
-            return View("Details", entertainment);
+            return View("Details", entertainment);//mostra os detalhes do item na pagina
         }
 
         public ActionResult Create()

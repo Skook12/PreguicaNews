@@ -34,7 +34,7 @@ namespace PreguicaNews.Controllers
             EntertainmentModel entertainment = entertainmentDAO.FetchOne(id,0);//para saber sobre o FetchOne olhe a classe entertainmentDAO
             return View("Details", entertainment);
         }
-        public ActionResult Create()
+        public ActionResult Create()//Ira encaminhar para a pagina EntertainmentForm
         {
             return View("EntertainmentForm");
         }
@@ -52,7 +52,7 @@ namespace PreguicaNews.Controllers
             List<EntertainmentModel> entertainments = entertainmentDAO.FetchAll(0);
             return View("MostrarJogos", entertainments);
         }
-        public ActionResult SearchForm()
+        public ActionResult SearchForm()//Ira encaminhar para a pagina SearchForm
         {
 
             return View("SearchForm");
